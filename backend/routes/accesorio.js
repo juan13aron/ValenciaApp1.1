@@ -10,6 +10,7 @@ router.get('/ausente',AccesorioController.datosestudiante);
 router.post('/guardaraccesorio',AccesorioController.save);
 router.get('/listaraccesorio/:parametro?',AccesorioController.get_accesorio);
 router.put('/editaraccesorio/:id',AccesorioController.update);
+router.get('/buscaraccesorios/:id',AccesorioController.get_accesoriobyid);
 router.delete('/eliminaraccesorio/:id',AccesorioController.delete);
 router.get('/buscaraccesorio/:id',AccesorioController.search);
 router.post('/subir-imagen-accesorio/:id',md_upload,AccesorioController.upload);

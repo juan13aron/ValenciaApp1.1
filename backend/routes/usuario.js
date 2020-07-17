@@ -10,6 +10,7 @@ router.get('/ausente',UsuarioController.datosestudiante);
 router.post('/guardarusuario',UsuarioController.save);
 router.get('/listarusuario/:parametro?',UsuarioController.get_usuarios);
 router.put('/editarusuario/:id',UsuarioController.update);
+router.get('/buscarusuarios/:id',UsuarioController.get_usuariobyid);
 router.delete('/eliminarusuario/:id',UsuarioController.delete);
 router.get('/buscarusuario/:id',UsuarioController.search);
 router.post('/subir-imagen-usuario/:id',md_upload,UsuarioController.upload);

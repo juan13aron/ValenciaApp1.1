@@ -86,6 +86,34 @@ var controller={
         })
         
     },
+    get_accesoriobyid:(req,res)=>{
+        var id=req.params.id;
+        if(!id || id==null){
+            return res.status(404).send({
+                status:'Error',
+                message:"No hay id",
+            })
+        }
+        //Buscar el id
+        Accesorio.findById(id,(err,Accesorio)=>{
+            if(err){
+                return res.status(404).send({
+                    status:'Error',
+                    message:"No se pudo procesar",
+                })
+            }
+            if(!Accesorio){
+                return res.status(404).send({
+                    status:'error',
+                    message:"No existe el producto, ingrese una id valida",
+                })
+            }
+            return res.status(200).send({
+                status:'Exito',
+                message:Accesorio,
+            })
+        })
+    },
     update:(req,res)=>{
         var id=req.params.id;
         var parametros=req.body;

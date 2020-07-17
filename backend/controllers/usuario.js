@@ -85,6 +85,34 @@ var controller={
         })
         
     },
+    get_usuariobyid:(req,res)=>{
+        var id=req.params.id;
+        if(!id || id==null){
+            return res.status(404).send({
+                status:'Error',
+                message:"No hay id",
+            })
+        }
+        //Buscar el id
+        Usuario.findById(id,(err,Usuario)=>{
+            if(err){
+                return res.status(404).send({
+                    status:'Error',
+                    message:"No se pudo procesar",
+                })
+            }
+            if(!Usuario){
+                return res.status(404).send({
+                    status:'error',
+                    message:"No existe el producto, ingrese una id valida",
+                })
+            }
+            return res.status(200).send({
+                status:'Exito',
+                message:Usuario,
+            })
+        })
+    },
     update:(req,res)=>{
         var id=req.params.id;
         var parametros=req.body;
